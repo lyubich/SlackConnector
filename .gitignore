@@ -10,8 +10,12 @@
 /test/version_tmp/
 /tmp/
 
+.idea/
+
 # Used by dotenv library to load environment variables.
 *.env
+
+docker-compose.override.yml
 
 ## Specific to RubyMotion:
 .dat*

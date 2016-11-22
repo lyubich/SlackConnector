@@ -1,8 +1,9 @@
 version: '2'
 services:
- postgres:
-  ports:
-   - '5432:5432'
- ruby:
-  ports:
-   - '3000:3000'
+ bot:
+  networks:
+  - ruby-net
+
+networks:
+  ruby-net:
+    driver: bridge

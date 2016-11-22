@@ -10,24 +10,21 @@ HEADERS = {
 
 client = Slack::RealTime::Client.new
 
-def post(options = {})
+def post(options = {}, event_type)
+  url = "#{ENV['API_URL']}/#{event_type}"
   HTTParty.post(
-      ENV['API_URL'],
+      url,
       body: options.to_json,
       headers: HEADERS)
 end
 
 client.on :message do |data|
-  post(data.merge(condition: 'message'))
+  post(data, 'message')
 end
 
 
 client.on :group_joined do |data|
-  Slack::Config.logger.info 'GREETING ------------------------------------------------------'
-  Slack::Config.logger.info data
-  Slack::Config.logger.info data.channel.id
-  client.web_client.chat_postMessage channel: data.channel.id, text: 'О, всем привет!'
-  Slack::Config.logger.info 'GREETING STOP ------------------------------------------------------'
+  post(data, 'group-joined')
 end
 
 client.start!

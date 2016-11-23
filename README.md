@@ -4,7 +4,7 @@ Part of slack bot for connection to slack
 **All next commands should be run from project root!**
 
 ### Preparing
-For local start copy file _docker-compose.local.yml_ to _docker-compose.override.yml_
+For local start copy file _docker-compose.local.yml_ to _docker-compose.override.yml_  
 Copy file _.slack.env.template_ to _.slack.env_ and fill it fields
 
 For install docker-compose use guide https://docs.docker.com/compose/install/

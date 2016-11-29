@@ -27,4 +27,8 @@ client.on :group_joined do |data|
   post(data, 'group-joined')
 end
 
+client.on :user_change do |data|
+  post(data, 'user-change')
+end
+
 client.start!
